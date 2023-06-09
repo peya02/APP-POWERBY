@@ -1,0 +1,36 @@
+{% extends './base.html' %}
+
+{% block title %}Prueba{% endblock %}
+
+{% block body %}
+
+<section class="section">
+    <div class="columns">
+        <div class="column">
+            <h3 class="is-size-3">REPORTES</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>ID Reporte</th>
+                        <th>Report</th>
+                        <th>Report ID</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for juego in juegos %}
+                    <tr>
+                        <td>{{juego[0]}}</td>
+                        <td>{{juego[1]}}</td>
+                        <td>{{juego[2]}}</td>
+                        <td>
+                            {# Pasar el id (lo que hay en juego[0] #}
+                            <a href="{{url_for('editar_juego', id=juego[0])}}" class="button is-info">Abrir</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+{% endblock %}
